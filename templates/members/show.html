@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> {{member.name}} </h1>
+
+<h3>Attended:</h3>
+<ul>
+    {% for activity in activitys %}
+    <li>{{ activity.name }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
