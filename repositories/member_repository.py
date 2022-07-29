@@ -22,7 +22,7 @@ def select_all():
 
 def select(id):
     member = None
-    sql = "SELECT * FROM users WHERE id = %s"
+    sql = "SELECT * FROM members WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
 

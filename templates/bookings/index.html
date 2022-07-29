@@ -4,13 +4,13 @@
 <h1>Bookings</h1>
 
 <p>
-  <a href="/bookings/new">New visit</a>
+  <a href="/bookings/new">New Booking</a>
 </p>
 
 <ul>
   {% for booking in bookings %}
   <li>
-  <p>{{ booking.user.name }} - {{ booking.activity.name }} </p>
+  <p>{{ booking.member.name }} - {{ booking.activity.name }} </p>
   <p>"<i>{{booking.review}}</i>"</p>
     <p>
       <form action="/bookings/{{ booking.id }}/delete" method="POST">
