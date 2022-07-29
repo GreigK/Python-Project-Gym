@@ -15,4 +15,6 @@ def activitys():
 def show(id):
     activity = activity_repository.select(id)
     members = activity_repository.members(id)
-    return render_template("locations/show.html", activity=activity, members=members)
+    return render_template("activitys/show.html", activity=activity, members=members)
+
+

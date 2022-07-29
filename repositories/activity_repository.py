@@ -2,7 +2,6 @@
 from db.run_sql import run_sql
 from models.activity import Activity
 from models.member import Member
-from repositories.member_repository import location
 
 def save(activity):
     sql = "INSERT INTO activitys(name, type) VALUES ( %s, %s ) RETURNING id"
@@ -18,14 +17,14 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        activity = activity(row['name'], row['type'], row['id'])
+        activity = Activity(row['name'], row['type'], row['id'])
         activitys.append(activity)
     return activitys
 
 
 def select(id):
     activity = None
-    sql = "SELECT * FROM sssions WHERE id = %s"
+    sql = "SELECT * FROM activitys WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
 

@@ -10,7 +10,7 @@
 <ul>
   {% for booking in bookings %}
   <li>
-  <p>{{ booking.user.name }} - {{ booking.location.name }} </p>
+  <p>{{ booking.user.name }} - {{ booking.activity.name }} </p>
   <p>"<i>{{booking.review}}</i>"</p>
     <p>
       <form action="/bookings/{{ booking.id }}/delete" method="POST">
