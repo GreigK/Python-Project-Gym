@@ -5,8 +5,8 @@ import repositories.activity_repository as activity_repository
 
 
 def save(booking):
-    sql = "INSERT INTO bookings ( member_id, activity_id, review ) VALUES ( %s, %s, %s ) RETURNING id"
-    values = [booking.member.id, booking.activity.id, booking.review]
+    sql = "INSERT INTO bookings ( member_id, type_id, review ) VALUES ( %s, %s, %s ) RETURNING id"
+    values = [booking.member.id, booking.type.id, booking.review]
     results = run_sql(sql, values)
     booking.id = results[0]['id']
     return booking
@@ -19,7 +19,7 @@ def select_all():
 
     for row in results:
         member = member_repository.select(row['member_id'])
-        activity = activity_repository.sellect(row['activity_id'])
+        activity = activity_repository.sellect(row['type_id'])
         booking = Booking(member, activity, row['review'], row['id'])
         bookings.append(booking)
     return bookings
