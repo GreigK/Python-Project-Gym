@@ -23,6 +23,6 @@ CREATE TABLE activitys (
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
     activity_id SERIAL NOT NULL REFERENCES activitys(id),
-    member_id SERIAL NOT NULL REFERENCES members(id),
+    member_id SERIAL NOT NULL REFERENCES members(id)
 );
 
