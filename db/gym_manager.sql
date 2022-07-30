@@ -1,7 +1,7 @@
 DROP TABLE bookings;
 DROP TABLE members;
 DROP TABLE activitys;
-DROP TABLE activity_type;
+DROP TABLE activity_types;
 
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,
