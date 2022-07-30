@@ -1,8 +1,8 @@
 class Booking:
 
-    def __init__(self, member, type, review, id = None):
+    def __init__(self, member, activity, review, id = None):
         self.member = member
-        self.type = type
+        self.activity = activity
         self.review = review
         self.id = id 
 

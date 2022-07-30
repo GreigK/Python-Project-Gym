@@ -1,35 +1,38 @@
-
 from db.run_sql import run_sql
-from models.activity import Activity
 from models.member import Member
+from models.activity import Activity
+from models.activity_type import ActivityType
+import repositories.activity_type_repository as activity_type_repository 
 
 def save(activity):
-    sql = "INSERT INTO activitys(name, type) VALUES ( %s, %s ) RETURNING id"
-    values = [activity.name, activity.type]
+    sql = "INSERT INTO activity (name, activity_type_id) VALUES (%s, %s) RETURNING id"
+    values = [activity.name, activity.activity_type.id]
     results = run_sql(sql, values)
-    activity.id = results[0]['id']
-    return activity
+    id = results[0]['id']
+    activity.id = id
+
 
 def select_all():
     activitys = []
-    
     sql = "SELECT * FROM activitys"
     results = run_sql(sql)
-
-    for row in results:
-        activity = Activity(row['name'], row['type'], row['id'])
+    for result in results:
+        activity_type = activity_type_repository.select(result["activity_type_id"])
+        activity = Activity(result["name"], activity_type, result["id"])
         activitys.append(activity)
     return activitys
 
 
 def select(id):
-    activity = None
     sql = "SELECT * FROM activitys WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)[0]
+    results = run_sql(sql, values)
 
-    if result is not None:
-        activity = Activity(result['name'], result['type'], result['id'])
+    
+    if results:
+        result = results[0]
+        activity_type = activity_type_repository.select(result["activity_type_id"])
+        activity = Activity(result["name"], activity_type, result["id"])
     return activity
 
 
@@ -38,13 +41,24 @@ def delete_all():
     run_sql(sql)
 
 
-def members(id):
-    sql = "SELECT members.* FROM members INNER JOIN booking ON member.id WHERE bookings.activity_id = %s"
+def delete(id):
+    sql = "DELETE FROM activitys WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+
+def update(activity):
+    sql = "UPDATE activitys SET (name, activity_type_id) = (%s, %s) WHERE id = %s"
+    values = [activity.name, activity.activity_type.id, activity.id]
+    run_sql(sql, values)
+
+
+def select_members_of_activity(id):
+    members = []
+    sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.activity_id = %s"
     values = [id]
     results = run_sql(sql, values)
-
-    members = []
-    for row in results:
-        member = Member(row["name"], row["id"])
+    for result in results:
+        member = Member(result["name"])
         members.append(member)
     return members

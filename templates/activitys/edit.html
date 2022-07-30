@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Update a Activity</h2>
+
+<form action="/activitys/{{ activity.id }}" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ activity.name }}">
+    </div>
+    <div>
+        <label for="activity-type">Activity Type:</label>
+        <select name="activity_type_id" id="activity-type">
+            {% for activity_type in activity_type %}
+            <option value="{{ activity_type.id }}" {% if activity_type.id == activity.activity_type.id %} selected {% endif %}>
+                {{ activity+type.name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
+{% endblock %}

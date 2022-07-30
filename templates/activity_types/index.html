@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Activity Types</h2>
+
+{% for activity_type in activity_types %}
+
+<section>
+    <p>{{ activity_type.name }}</p>
+    <a href="/activitytypes/{{ activity_type.id }}/edit">Edit</a>
+    <form action="/activitytypes/{{ activity_type.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+</section>
+
+{% endfor %}
+{% endblock %}

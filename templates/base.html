@@ -1,27 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Booking System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Gym App</title>
 </head>
 <body>
-<main>
-  <nav>
-    <ul>
-      <li>
-        <a href="/activitys">Activitys</a>
-      </li>
-      <li>
-        <a href="/members">Member</a>
-      </li>
-      <li>
-        <a href="/bookings">Booking</a>
-      </li>
-    </ul>
-  </nav>
-  <section>
-      {% block content %}
-
-      {% endblock%}
-  </section>
-  </main>
+    <header>
+        <h1>Gym App</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li>
+                    Activitys
+                    <ul>
+                        <li><a href="/activitys">All</a></li>
+                        <li><a href="/activitys/new">Add</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Activity Types
+                    <ul>
+                        <li><a href="/activitytypes">All</a></li>
+                        <li><a href="/activitytypes/new">Add</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Members
+                    <ul>
+                        <li><a href="/members">All</a></li>
+                        <li><a href="/members/new">Add</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Bookings
+                    <ul>
+                        <li><a href="/bokings">All</a></li>
+                        <li><a href="/bookings/new">Add</a></li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
+</html>

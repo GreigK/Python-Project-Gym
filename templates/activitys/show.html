@@ -1,15 +1,9 @@
-{% extends 'base.html' %}
+<h2>{{ activity.name }}</h2>
+<p>Type: {{ activity.activity_type.name }}</p>
 
-{% block content %}
-<h1> {{activity.name}} </h1>
-
-<p>Type: {{ activity.type }}</p>
-
-<h3>Attended by:</h3>
+<h3>Members</h3>
 <ul>
     {% for member in members %}
     <li>{{ member.name }}</li>
     {% endfor %}
 </ul>
-
-{% endblock %}
