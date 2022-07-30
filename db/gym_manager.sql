@@ -8,21 +8,21 @@ CREATE TABLE members (
     name VARCHAR(255)
 );
 
-CREATE TABLE activity_type (
+CREATE TABLE activity_types (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255)
 );
 
 CREATE TABLE activitys (
     id SERIAL PRIMARY KEY,
-    type VARCHAR(255),
-    name VARCHAR(255)
+    name VARCHAR(255),
+    activity_type_id INT REFERENCES activity_types(id)
 );
+
 
 CREATE TABLE bookings (
     id SERIAL PRIMARY KEY,
-    member_id INT REFERENCES members(id),
-    activity_id INT REFERENCES activity(id),
-    review TEXT
+    activity_id SERIAL NOT NULL REFERENCES activitys(id),
+    member_id SERIAL NOT NULL REFERENCES members(id),
 );
 

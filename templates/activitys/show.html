@@ -1,9 +1,9 @@
 <h2>{{ activity.name }}</h2>
 <p>Type: {{ activity.activity_type.name }}</p>
 
-<h3>Members</h3>
+<h3>Events</h3>
 <ul>
-    {% for member in members %}
-    <li>{{ member.name }}</li>
+    {% for event in events %}
+    <li>{{ event.name }}</li>
     {% endfor %}
 </ul>

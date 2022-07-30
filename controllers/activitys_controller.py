@@ -16,9 +16,9 @@ def activitys():
 
 @activitys_blueprint.route("/activitys/<id>")
 def show_activity(id):
-    members = activity_repository.select_members_of_activity(id)
+    events = activity_repository.select_events_of_activity(id)
     activitys = activity_repository.select(id)
-    return render_template("activitys/show.html", members=members, activitys=activitys)
+    return render_template("activitys/show.html", events=events, activitys=activitys)
 
 
 

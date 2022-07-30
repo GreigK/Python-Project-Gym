@@ -53,12 +53,12 @@ def update(activity):
     run_sql(sql, values)
 
 
-def select_members_of_activity(id):
-    members = []
+def select_events_of_activity(id):
+    events = []
     sql = "SELECT members.* FROM members INNER JOIN bookings ON bookings.member_id = members.id WHERE bookings.activity_id = %s"
     values = [id]
     results = run_sql(sql, values)
     for result in results:
         member = Member(result["name"])
-        members.append(member)
-    return members
+        events.append(member)
+    return events
