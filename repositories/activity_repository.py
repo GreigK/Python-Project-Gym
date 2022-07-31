@@ -5,11 +5,11 @@ from models.activity_type import ActivityType
 import repositories.activity_type_repository as activity_type_repository 
 
 def save(activity):
-    sql = "INSERT INTO activitys (name, activity_type_id) VALUES (%s, %s) RETURNING id"
-    values = [activity.name, activity.activity_type.id]
+    sql = "INSERT INTO activitys (name, activity_types_id) VALUES (%s, %s) RETURNING id"
+    values = [activity.name, activity.activity_types.id]
     results = run_sql(sql, values)
-    id = results[0]['id']
-    activity.id = id
+    activity.id = results[0]['id']
+    
 
 
 def select_all():

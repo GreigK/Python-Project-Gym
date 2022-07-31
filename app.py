@@ -12,6 +12,9 @@ app.register_blueprint(members_blueprint)
 app.register_blueprint(activitys_blueprint)
 app.register_blueprint(activity_types_blueprint)
 
-@app.route('/')
-def home():
+@app.route("/")
+def main():
     return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run()

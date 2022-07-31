@@ -13,9 +13,11 @@ from models.activity_type import ActivityType
 import repositories.activity_type_repository as activity_type_repository
 
 booking_repository.delete_all()
-member_repository.delete_all()
 activity_repository.delete_all()
 activity_type_repository.delete_all()
+member_repository.delete_all()
+
+
 
 member_1 = Member("Billy Bob")
 member_repository.save(member_1)
