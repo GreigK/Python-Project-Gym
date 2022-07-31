@@ -4,11 +4,18 @@ from models.activity import Activity
 from models.activity_type import ActivityType
 import repositories.activity_type_repository as activity_type_repository 
 
+# def save(activity):
+#     sql = "INSERT INTO activitys (name, activity_types_id) VALUES (%s, %s) RETURNING id"
+#     values = [activity.name, activity.activity_types.id]
+#     results = run_sql(sql, values)
+#     activity.id = results[0]['id']
+
 def save(activity):
-    sql = "INSERT INTO activitys (name, activity_types_id) VALUES (%s, %s) RETURNING id"
-    values = [activity.name, activity.activity_types.id]
+    sql = "INSERT INTO activitys (name, activity_type_id) VALUES (%s, %s) RETURNING id"
+    values = [activity.name, activity.activity_type.id]
     results = run_sql(sql, values)
-    activity.id = results[0]['id']
+    id = results[0]['id']
+    activity.id = id
     
 
 

@@ -13,9 +13,9 @@ from models.activity_type import ActivityType
 import repositories.activity_type_repository as activity_type_repository
 
 booking_repository.delete_all()
+member_repository.delete_all()
 activity_repository.delete_all()
 activity_type_repository.delete_all()
-member_repository.delete_all()
 
 
 
@@ -58,4 +58,3 @@ booking_repository.save(booking_3)
 booking_4 = Booking(member_4, activity_2)
 booking_repository.save(booking_4)
 
-pdb.set_trace()

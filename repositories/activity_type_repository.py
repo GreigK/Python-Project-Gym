@@ -2,7 +2,7 @@ from db.run_sql import run_sql
 from models.activity_type import ActivityType
 
 def save(activity_type):
-    sql = "INSERT INTO activity_type (name) VALUES (%s) RETURNING id"
+    sql = "INSERT INTO activity_types (name) VALUES (%s) RETURNING id"
     values = [activity_type.name]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -11,7 +11,7 @@ def save(activity_type):
 
 def select_all():
     activity_types = []
-    sql = "SELECT * FROM activity_type"
+    sql = "SELECT * FROM activity_types"
     results = run_sql(sql)
     for result in results:
         activity_type = ActivityType(result["name"], result["id"])

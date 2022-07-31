@@ -8,7 +8,7 @@
 <section>
     <p>{{ booking.activity.name }} in {{ booking.member.name }}</p>
     <a href="/bookings/{{ booking.id }}/edit">Edit</a>
-    <form action="/booking/{{ booking.id }}/delete" method="POST">
+    <form action="/bookings/{{ booking.id }}/delete" method="POST">
         <input type="submit" value="Delete">
     </form>
 </section>
