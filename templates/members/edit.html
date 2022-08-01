@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Update a Member</h2>
+<h2>Update a Member, premium</h2>
 
 <form action="/members/{{ member.id }}" method="POST">
     <div>
@@ -9,6 +9,22 @@
         <input type="text" id="name" name="name" value="{{ member.name }}">
         <input type="submit">
     </div>
+    <div>
+        <label for="premium">premium:</label>
+        <select id="premium" name="premium">
+    
+          <option value="true"
+            {% if member.premium == True %} selected="selected" {% endif %}>
+            True
+          </option>
+    
+          <option value="false"
+            {% if member.premium == False %} selected="selected" {% endif %}>
+            False
+          </option>
+    
+        </select>
+      </div>
 </form>
 
 {% endblock %}

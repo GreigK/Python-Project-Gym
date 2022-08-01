@@ -5,7 +5,8 @@ DROP TABLE activity_types;
 
 CREATE TABLE members (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255)
+    name VARCHAR(255),
+    premium BOOLEAN
 );
 
 CREATE TABLE activity_types (

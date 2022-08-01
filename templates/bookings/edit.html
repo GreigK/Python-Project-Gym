@@ -10,6 +10,7 @@
             {% for member in members %}
             <option value="{{ member.id }}" {% if member.id == booking.member.id %} selected {% endif %}>
                 {{ member.name }}
+                {{ members.premium}}
             </option>
             {% endfor %}
         </select>

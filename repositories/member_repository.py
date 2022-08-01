@@ -3,8 +3,8 @@ from db.run_sql import run_sql
 from models.member import Member
 
 def save(member):
-    sql = "INSERT INTO members (name) VALUES (%s) RETURNING id"
-    values = [member.name]
+    sql = "INSERT INTO members (name, premium) VALUES (%s, %s) RETURNING id"
+    values = [member.name, member.premium]
     results = run_sql(sql, values)
     id = results[0]['id']
     member.id = id
@@ -15,7 +15,7 @@ def select_all():
     sql = "SELECT * FROM members"
     results = run_sql(sql)
     for result in results:
-        member = Member(result["name"], result["id"])
+        member = Member(result["name"], result['premium'] ,result["id"])
         members.append(member)
     return members
 
@@ -28,7 +28,7 @@ def select(id):
 
     if results:
         result = results[0]
-        member = Member(result["name"], result["id"])
+        member = Member(result["name"], result['premium'] ,result["id"])
     return member
 
 
@@ -44,6 +44,6 @@ def delete(id):
 
 
 def update(member):
-    sql = "UPDATE members SET name = %s WHERE id = %s"
+    sql = "UPDATE members SET (name, premium) = (%s, %s) WHERE id = (%s, %s)"
     values = [member.name, member.id]
     run_sql(sql, values)
