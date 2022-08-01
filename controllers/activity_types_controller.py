@@ -40,6 +40,7 @@ def update_activity(id):
     name = request.form["name"]
     activity_type = ActivityType(name, id)
     activity_type_repository.update(activity_type)
+    return redirect("/activitytypes")
 
 
 

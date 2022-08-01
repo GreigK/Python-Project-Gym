@@ -19,16 +19,16 @@ activity_type_repository.delete_all()
 
 
 
-member_1 = Member("Billy Bob")
+member_1 = Member("Billy Bob", True)
 member_repository.save(member_1)
 
-member_2 = Member("John Smoth")
+member_2 = Member("John Smoth", False)
 member_repository.save(member_2)
 
-member_3 = Member("Jane Doe")
+member_3 = Member("Jane Doe", False)
 member_repository.save(member_3)
 
-member_4 = Member("Paddy Pimblett")
+member_4 = Member("Paddy Pimblett", True)
 member_repository.save(member_4)
 
 activity_type_1 = ActivityType("endurance")
