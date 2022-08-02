@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Add a New Activity</h2>
+<h2 class="addnewactivity">Add a New Activity</h2>
+<hr>
 
 <form action="/activitys" method="POST">
     <div>
@@ -10,7 +11,7 @@
     </div>
     <div>
         <label for="activity-type">Activity Type:</label>
-        <select name="activity_type_id" id="activity-type">
+        <select name="activity_type_id" id="activity-type"> 
             {% for activity_type in activity_types %}
             <option value="{{ activity_type.id }}">
                 {{ activity_type.name }}
