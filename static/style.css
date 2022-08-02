@@ -71,20 +71,37 @@ body > nav > ul > li {
 
 .addnewactivity {
     font-size: 25px;
+    font-family:'Trebuchet MS';
     text-align: center;
     margin-top: 60px;
+    padding: 14px;
 }
 
 input[type=text] {
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 100px;
     margin-bottom: 10px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 
 input[type=submit] {
     padding: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
+    border:0;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.container {
+    flex: auto;
+    border: 2px solid #eee;
+
+}
+
+.editbutton {
+    padding: 10px;
+    color:chartreuse;
 }
 
 
