@@ -31,13 +31,13 @@ member_repository.save(member_3)
 member_4 = Member("Paddy Pimblett", True)
 member_repository.save(member_4)
 
-activity_type_1 = ActivityType("endurance")
+activity_type_1 = ActivityType("short")
 activity_type_repository.save(activity_type_1)
 
-activity_type_2 = ActivityType("strength")
+activity_type_2 = ActivityType("medium")
 activity_type_repository.save(activity_type_2)
 
-activity_type_3 = ActivityType("flexibility")
+activity_type_3 = ActivityType("long")
 activity_type_repository.save(activity_type_3)
 
 activity_1 = Activity("Aquafit", activity_type_2)
