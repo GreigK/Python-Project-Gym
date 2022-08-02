@@ -101,11 +101,18 @@ input[type=submit] {
 
 .editbutton {
     padding: 10px;
-    color:chartreuse;
+    color:rgb(0, 0, 0);
+    background-color: rgba(133, 129, 129, 0.454);
+    transition-property: all;
 }
 
+.information {
+    flex: auto;
+    display: block;
+}
 
+footer {
+    background-color:black;
+    padding: 10px;;
+}
 
-/* ID hashtag
-CLASS . */
-/* fieldset */

@@ -6,10 +6,10 @@
 
 {% for activity_type in activity_types %}
 
-<section>
+<section class="information">
     <p>{{ activity_type.name }}</p>
-    <a href="/activitytypes/{{ activity_type.id }}/edit">Edit</a>
-    <form action="/activitytypes/{{ activity_type.id }}/delete" method="POST">
+    <a href="/activitytypes/{{ activity_type.id }}/edit" class="editbutton">Edit</a>
+    <form action="/activitytypes/{{ activity_type.id }}/delete" method="POST" class="Activeform">
         <input type="submit" value="Delete">
     </form>
 </section>
