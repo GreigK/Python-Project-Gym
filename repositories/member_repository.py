@@ -1,3 +1,4 @@
+import sqlite3
 from ssl import MemoryBIO
 from db.run_sql import run_sql
 from models.member import Member
@@ -47,3 +48,8 @@ def update(member):
     sql = "UPDATE members SET (name, premium) = (%s, %s) WHERE id = %s"
     values = [member.name, member.premium ,member.id]
     run_sql(sql, values)
+
+# def check_member_grade(member):
+#     sql = "SELECT premium* from premium FROM members"
+#     values = [id]
+#     result = run_sql(sql, values)

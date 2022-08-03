@@ -17,6 +17,12 @@
     -webkit-text-stroke: 1px rgb(193, 15, 12);
 }   
 
+
+body {
+    background-color: grey;
+}
+
+
 body > nav > ul > li {
     font-size: 30px;
     justify-content: space-evenly
@@ -114,5 +120,9 @@ input[type=submit] {
 footer {
     background-color:black;
     padding: 10px;;
+}
+
+.eventstuff {
+    height: 100%;
 }
 
